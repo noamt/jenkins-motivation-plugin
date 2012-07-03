@@ -1,0 +1,8 @@
+<j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form">
+    <f:section title="Motivation Plugin">
+        <f:entry title="Default Motivating Message" field="defaultMotivatingMessage"
+                 description="The motivational message to display when a build fails">
+            <f:textbox/>
+        </f:entry>
+    </f:section>
+</j:jelly>

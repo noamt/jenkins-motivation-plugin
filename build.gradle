@@ -1,0 +1,38 @@
+buildscript {
+    repositories {
+        maven {
+            url "http://repo.jfrog.org/artifactory/libs-releases"
+        }
+        maven {
+            name "jenkins"
+            delegate.url("http://maven.jenkins-ci.org/content/repositories/releases/")
+        }
+    }
+    dependencies {
+        classpath 'org.jenkins-ci.tools:gradle-jpi-plugin:0.4.0'
+    }
+}
+apply plugin: 'jpi'
+apply plugin: 'idea'
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.0'
+}
+
+groupId = "org._10ne.jenkins"
+version = "0.0.1-SNAPSHOT"
+description = "Displays motivational messages when the build fails"
+
+jenkinsPlugin {
+    coreVersion = '1.472'
+    displayName = 'Jenkins Motivation Plugin'
+    gitHubUrl = 'https://github.com/noamt/jenkins-motivation-plugin'
+
+    developers {
+        developer {
+            id 'noamt'
+            name 'Noam Y. Tenne'
+            email 'noam@10ne.org'
+        }
+    }
+}
