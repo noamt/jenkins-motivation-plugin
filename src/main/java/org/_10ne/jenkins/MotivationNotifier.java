@@ -40,7 +40,9 @@ public class MotivationNotifier extends Notifier {
         if (Result.FAILURE.equals(build.getResult()) && motivateFailures) {
             String motivatingMessage = getDescriptor().getDefaultMotivatingMessage();
 
-            listener.getLogger().println("######" + motivatingMessage + "######");
+            listener.getLogger().println("####################################################");
+            listener.getLogger().println("######  " + motivatingMessage + "  ######");
+            listener.getLogger().println("####################################################");
         }
         return true;
     }
