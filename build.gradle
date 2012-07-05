@@ -1,4 +1,7 @@
 buildscript {
+    /**
+     * Repositories
+     */
     repositories {
         maven {
             url "http://repo.jfrog.org/artifactory/libs-releases"
@@ -8,10 +11,15 @@ buildscript {
             delegate.url("http://maven.jenkins-ci.org/content/repositories/releases/")
         }
     }
+    /**
+     * JPI Plugin dependency
+     */
     dependencies {
         classpath 'org.jenkins-ci.tools:gradle-jpi-plugin:0.4.0'
     }
 }
+
+//Actually apply JPI plugin
 apply plugin: 'jpi'
 apply plugin: 'idea'
 
@@ -19,10 +27,13 @@ task wrapper(type: Wrapper) {
     gradleVersion = '1.0'
 }
 
-groupId = "org._10ne.jenkins"
+group = "org._10ne.jenkins"
 version = "0.0.1-SNAPSHOT"
 description = "Displays motivational messages when the build fails"
 
+/**
+ * Jenkins descriptor variables
+ */
 jenkinsPlugin {
     coreVersion = '1.472'
     displayName = 'Jenkins Motivation Plugin'
